@@ -1,0 +1,3 @@
+from GraphFunc import *
+
+printGraph()
