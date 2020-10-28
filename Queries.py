@@ -1,11 +1,7 @@
 #Function one to get input for the stock symbol. 
 userInput1 = input("Enter the stock symbol you are looking for:")
 
-print("Your Choices are:")
-
-print("1.Bar")
-
-print("2.Line")
+print("Your Choices are: Bar and Chart")
 
 #Function two to get input on what chart they want.
 userInput2 = input("Enter the type of chart you want:")
@@ -23,15 +19,8 @@ else:
     print("That is not a valid input your choices are Bar or Line. Please try again.")
     
 
-print("Time Series Selections:")
+print("Time Series Selections: 1.Intraday 2.Daily 3.Weekly 4.Monthly")
 
-print("1.Intraday")
-
-print("2.Daily")
-
-print("3.Weekly")
-
-print("4.Monthly")
 
 #Function Three to get input for the Time Series selection.
 userInput3 = input("Enter the time series option you'd like:") 
