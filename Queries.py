@@ -1,43 +1,47 @@
-userChoicelist = []
+def queries():
 
-print("Stock Data Visualizer\n-----------------------\n")
+    userChoicelist = []
 
-# Function one to get input for the stock symbol.
-userInput1 = input("Enter the stock symbol you are looking for: ")
-userChoicelist.append(userInput1)
+    print("Stock Data Visualizer\n-----------------------\n")
 
-print("\nChart Types\n---------------")
+    # Function one to get input for the stock symbol.
+    userInput1 = input("Enter the stock symbol you are looking for: ")
+    userChoicelist.append(userInput1)
 
-print("1.Bar \n2.Chart\n")
+    print("\nChart Types\n---------------")
 
-# Function two to get input on what chart they want.
-userInput2 = int(input("Enter the type of chart you want (1, 2): "))
+    print("1.Bar \n2.Chart\n")
 
-while(True):
-    if (userInput2 == 1):
-        userChoicelist.append(userInput2)
-        break
+    # Function two to get input on what chart they want.
+    userInput2 = int(input("Enter the type of chart you want (1, 2): "))
 
-    elif (userInput2 == 2):
-        userChoicelist.append(userInput2)
-        break
+    while(True):
+        if (userInput2 == 1):
+            userChoicelist.append(userInput2)
+            break
 
-    else:
-        print("\nThat is not a valid input your choices are 1.Bar or Line. Please try again.\n")
-        userInput2 = int(input("Enter the type of chart you want:"))
+        elif (userInput2 == 2):
+            userChoicelist.append(userInput2)
+            break
 
-print("\nSelect the Time Series of the chart you want to Generate")
-print("---------------------------------------------------------")
-print("1.Intraday\n2.Daily\n3.Weekly\n4.Monthly\n")
+        else:
+            print("\nThat is not a valid input your choices are 1.Bar or Line. Please try again.\n")
+            userInput2 = int(input("Enter the type of chart you want:"))
 
-# Function Three to get input for the Time Series selection.
-userInput3 = int(input("Enter the time series option (1, 2, 3, 4): "))
+    print("\nSelect the Time Series of the chart you want to Generate")
+    print("---------------------------------------------------------")
+    print("1.Intraday\n2.Daily\n3.Weekly\n4.Monthly\n")
 
-while(True):
-    if (userInput3 > 0 & userInput3 < 5):
-        userChoicelist.append(userInput3)
-        break
+    # Function Three to get input for the Time Series selection.
+    userInput3 = int(input("Enter the time series option (1, 2, 3, 4): "))
 
-    else:
-        print("\nThat is not a valid input your choices are \n1.Intraday \n2.Daily \n3.Weekly \n4.Monthly\n")
-        userInput3 = int(input("Enter the time series option you'd like:"))
+    while(True):
+        if (userInput3 > 0 & userInput3 < 5):
+            userChoicelist.append(userInput3)
+            break
+
+        else:
+            print("\nThat is not a valid input your choices are \n1.Intraday \n2.Daily \n3.Weekly \n4.Monthly\n")
+            userInput3 = int(input("Enter the time series option you'd like:"))
+    
+    return userChoicelist
