@@ -1,7 +1,22 @@
 from GraphFunc import *
 from Queries import *
+import requests
+import json
 
 userChoices = queries()
+
+if(userChoices[2] == 1):
+    payload = {'function':'TIME_SERIES_INTRADAY','symbol':userChoices[0],'interval':'30min','apikey':'P8HT9FLVF2HF2HZB'}
+elif(userChoices[2] == 2):
+    payload = {'function':'TIME_SERIES_DAILY','symbol':userChoices[0],'apikey':'P8HT9FLVF2HF2HZB'}
+elif(userChoices[2] == 3):
+    payload = {'function':'TIME_SERIES_WEEKLY','symbol':userChoices[0],'apikey':'P8HT9FLVF2HF2HZB'}
+else:
+    payload = {'function':'TIME_SERIES_MONTHLY','symbol':userChoices[0],'apikey':'P8HT9FLVF2HF2HZB'}
+
+results = requests.get('https://www.alphavantage.co/query', params=payload)
+
+print(results.text)
 
 while True:
     # Collect dates from user and split into three different fields
