@@ -16,6 +16,8 @@ else:
 
 results = requests.get('https://www.alphavantage.co/query', params=payload)
 
+results.json()
+
 print(results.text)
 
 while True:
