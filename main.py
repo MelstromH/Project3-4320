@@ -7,18 +7,20 @@ userChoices = queries()
 
 if(userChoices[2] == 1):
     payload = {'function':'TIME_SERIES_INTRADAY','symbol':userChoices[0],'interval':'30min','apikey':'P8HT9FLVF2HF2HZB'}
+    nestedName = "Time Series (30min)"
 elif(userChoices[2] == 2):
     payload = {'function':'TIME_SERIES_DAILY','symbol':userChoices[0],'apikey':'P8HT9FLVF2HF2HZB'}
+    nestedName = "Time Series (Daily)"
 elif(userChoices[2] == 3):
     payload = {'function':'TIME_SERIES_WEEKLY','symbol':userChoices[0],'apikey':'P8HT9FLVF2HF2HZB'}
+    nestedName = "Time Series (Weekly)"
 else:
     payload = {'function':'TIME_SERIES_MONTHLY','symbol':userChoices[0],'apikey':'P8HT9FLVF2HF2HZB'}
+    nestedName = "Time Series (Monthly)"
 
 results = requests.get('https://www.alphavantage.co/query', params=payload)
 
 results.json()
-
-print(results.text)
 
 while True:
     # Collect dates from user and split into three different fields
@@ -59,6 +61,25 @@ while True:
 print("Start date: " + str(date1))
 print("End date: " + str(date2))
 
+date = []
+open_value = []
+high_value = []
+low_value = []
+close_value = []
+volume_value = []
+
+for results, value in results.json()[nestedName].items():
+    
+    if(results >= begin_date and results <= end_date):
+    
+        date.append(results)
+        open_value.append(float(value["1. open"]))
+        high_value.append(float(value["2. high"]))
+        low_value.append(float(value["3. low"]))
+        close_value.append(float(value["4. close"]))
+        volume_value.append(float(value["5. volume"]))
+
+print(date)
 
 if userChoices[1] == 1:
     printBarGraph(userChoices[0], date1, date2, 1, userChoices[2])
