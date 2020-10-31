@@ -82,7 +82,7 @@ for results, value in results.json()[nestedName].items():
 print(date)
 
 if userChoices[1] == 1:
-    printBarGraph(userChoices[0], date1, date2, 1, userChoices[2])
+    printBarGraph(userChoices[0], date, open_value, high_value, close_value, low_value)
 else:
-    printLineGraph(userChoices[0], date1, date2, 1, userChoices[2])
+    printLineGraph(userChoices[0], date, open_value, high_value, close_value, low_value)
 
